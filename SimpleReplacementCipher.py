@@ -1,8 +1,8 @@
-from KeyCreation import key, alphabet
+from KeyCreation import alphabet
 
 
-def encryptText(text):
+def encryptText(text, key):
     result = []
-    for i in range (len(text)):
+    for i in range(len(text)):
         result.append(key[alphabet.index(text[i])])
     return result

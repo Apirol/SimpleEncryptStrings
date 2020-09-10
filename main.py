@@ -1,21 +1,20 @@
-from KeyCreation import keyCreation, key
+from KeyCreation import keyCreation
 from InputHandler import openFileAndReadData
 from PrepareTextHandler import PrepareText
-from OuputHandler import  writeDataToFile
+from OuputHandler import writeDataToFile
 from SimpleReplacementCipher import encryptText
 
 
-
 if __name__ == '__main__':
-    keyForEsse = keyCreation()
-    writeDataToFile(str(key), 'key.txt', 'w')
+    keyForEssay = keyCreation()
+    writeDataToFile(str(keyForEssay), 'keyForEssay.txt')
     keyForText = keyCreation()
-    writeDataToFile(str(key), 'key.txt', 'a')
-    defaultEsse = openFileAndReadData('Data/esse.txt')
-    preparedEsse = PrepareText(defaultEsse)
-    defaultText = openFileAndReadData('Data/text.txt')
+    writeDataToFile(str(keyForText), 'keyForText.txt')
+    defaultEssay = openFileAndReadData('Data/Essay.txt')
+    preparedEssay = PrepareText(defaultEssay)
+    defaultText = openFileAndReadData('Data/Text.txt')
     preparedText = PrepareText(defaultText)
-    encryptedEsse = encryptText(preparedEsse)
-    encryptedText = encryptText(preparedText)
-    writeDataToFile(encryptedEsse, 'Data/encryptedEsse.txt', 'w')
-    writeDataToFile(encryptedText, 'Data/encryptedText.txt', 'w')
+    encryptedEssay = encryptText(preparedEssay, keyForEssay)
+    encryptedText = encryptText(preparedText, keyForText)
+    writeDataToFile(encryptedEssay, 'Data/encryptedEssay.txt')
+    writeDataToFile(encryptedText, 'Data/encryptedText.txt')
